@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title> Whitewater Tracker </title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.1/mapquest.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.1/mapquest.css" />
+
+
+
+</head>
+
+<body style="overflow:hidden">
+
+  <!-- Begin Container -->
+  <div class="container-fluid">
+    <br>
+    <div class="well well-lg" style="background: rgb(22, 105, 173)">
+      <h1 class="text-center" style="color: white"> Whitewater Tracker </h1>
+    </div>
+
+
+
+    <div class="row">
+      <div class="well">
+        <div class="panel-group" style="overflow-y: scroll; height: 80vh">
+
+          <% for(var i=0; i<datas.length; i++){ %>
+
+            <div class="panel panel-primary">
+
+              <div class="panel-heading">
+
+                <h5><%= datas[i].data["name"] %></h5>
+
+              </div>
+
+              <div class="panel-body">
+
+                <div class="row">
+
+                  <div class="col-md-4">
+
+                    <h6>  Last Updated: <%= datas[i].data["date"]%> <%= datas[i].data["time"]%> </h6>
+                    <h6>  Discharge: <%= datas[i].data["discharge"]%> CFS </h6>
+                    <h6>  Depth: <%= datas[i].data["depth"]%>  Ft</h6>
+                    <h6>  Weather: <%= datas[i].data["weather"]%> </h6>
+                    <h6>  Site Location: <%= datas[i].data["lat"]%>,&nbsp <%= datas[i].data["long"]%> </h6>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <% } %>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- End Container -->
+
+
+</body>
+
+</html>
